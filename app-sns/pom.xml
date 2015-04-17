@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>app</artifactId>
+        <groupId>app</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>app-sns</artifactId>
+
+    <profiles>
+        <!--开发环境-->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>src/main/filter/dev.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <!--测试环境-->
+        <profile>
+            <id>test</id>
+            <build>
+                <filters>
+                    <filter>src/main/filter/test.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <!--生产环境-->
+        <profile>
+            <id>product</id>
+            <build>
+                <filters>
+                    <filter>src/main/filter/product.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
+
+
+</project>
